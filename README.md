@@ -7,6 +7,7 @@
 1.Already have vpc with 3 subnet for private , public and DB  
 2.Using public NLB for easy demo to front HA nodes  
 3.ETCD installed on same node as patroni , for production use case this will be installed on different node  
+4.Docker compose and HA config file is in AMI , auto-scale will spin up EC2 and user data will create container with defined config 
 
 # Requirnment  
 terraform v 0.12.6  
