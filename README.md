@@ -11,7 +11,8 @@
 5.Secrets kept in jinja directly as this is POC , we do not pratice this otherwise  
 
 # Requirnment  
-terraform v 0.12.6  
+terraform v 0.12.6   
+ansible 2.9.27
 
 # POC proofs  
 ![image](https://user-images.githubusercontent.com/38589884/152117602-99a04e0d-a1bf-452d-b4d0-c2529136cbdf.png)    
