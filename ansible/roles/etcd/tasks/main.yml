@@ -1,0 +1,27 @@
+---
+# tasks file for etcd
+- name: Configure repo 
+  yum:
+    pkg: https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+    validate_certs: no
+
+- name: Install packages 
+  yum: 
+    pkg: "{{ item }}"
+  with_items:
+    - epel-release
+    - python36
+    - patroni-etcd
+    - etcd
+    
+- name: Add ETCD config file
+  template:
+    src: etcd.conf.j2
+    dest: /etc/etcd/etcd.conf
+
+- name: Start and Enable etcd
+  systemd:
+    name: etcd
+    state: started
+    enabled: yes
+    daemon-reload: yes

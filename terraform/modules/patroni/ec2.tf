@@ -3,6 +3,7 @@ resource "aws_instance" "ec2" {
   ami = var.ami
   instance_type = var.ec2_size
   vpc_security_group_ids  = compact(concat(tolist([aws_security_group.ec2.id])))
+  key_name = var.key_name
 
   disable_api_termination  = var.disable_api_termination
   subnet_id = var.db_subnet[count.index]

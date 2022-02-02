@@ -1,0 +1,35 @@
+---
+# tasks file for patroni
+- name: Install packages
+  yum:
+    pkg: "{{ item }}"
+  with_items:
+    - postgresql13-server
+    - postgresql13
+    - postgresql13-contrib
+    - patroni
+
+- name: Creates directory
+  file:
+    path: /etc/patroni/logs
+    state: directory
+    mode: 0777
+
+- name: Add patroni config file
+  template:
+    src: patroni.yml.j2
+    dest: /etc/patroni/patroni.yml
+
+
+- name: Add patroni deamon config
+  template:
+    src: patroni.service.j2
+    dest: /etc/systemd/system/patroni.service
+
+- name: Start and Enable patroni
+  systemd:
+    name: patroni
+    state: started
+    enabled: yes
+    daemon-reload: yes
+

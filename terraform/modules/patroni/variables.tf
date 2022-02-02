@@ -22,4 +22,4 @@ variable "db_subnet" {
 }
 
 variable "disable_api_termination"  { default = "true" }
-
+variable "key_name" { default = "key-name" }

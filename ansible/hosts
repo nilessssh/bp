@@ -1,0 +1,8 @@
+[etcd]
+10.228.xx.xx hostname=patroni01
+10.228.xx.xx hostname=patroni02
+10.228.xx.xx hostname=patroni03
+[patroni]
+10.228.xx.xx hostname=patroni01
+10.228.xx.xx hostname=patroni02
+10.228.xx.xx hostname=patroni03

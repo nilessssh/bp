@@ -5,6 +5,7 @@ resource "aws_launch_configuration" "launch_conf" {
   instance_type = var.ec2_size
   security_groups = compact(concat(tolist([aws_security_group.sg_ha_proxy.id])))
   user_data = "${file("user-data.sh")}"
+  key_name = var.key_name
 
   lifecycle {
     create_before_destroy = true

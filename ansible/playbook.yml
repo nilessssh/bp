@@ -1,0 +1,8 @@
+- hosts: etcd:patroni
+  gather_facts: true
+  become: true
+  become_user: root
+  roles:
+    - etcd
+    - patroni
+
