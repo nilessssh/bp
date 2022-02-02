@@ -5,12 +5,12 @@ variable "ami" { }
 variable "ec2_size" { }
 variable "vpc_id" { default = "vpc-xyz" }
 variable "sg_name" { default = "ha_proxy" }
-variable "vpc_cidr" { default = "10.226.0.0/16" }
+variable "vpc_cidr" { default = "10.228.0.0/16" }
 variable "private_subnet" {
   type    = "list"
   default = ["subnet-abc", "subnet-qwe", "subnet-xyz"]
 }
-variable "private_cidr" { default = "10.226.48.0/22" }
+variable "private_cidr" { default = "10.228.48.0/22" }
 
 
 variable "disk_type" { default = "gp2" }
