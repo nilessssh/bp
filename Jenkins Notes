@@ -1,0 +1,16 @@
+To have correct downstreap job status set use this function 
+
+Function 
+def job_status (job_name) {
+        def job =jenkins.model.Jenkins.instance.getItemByFullName("${job_name}")
+        def result = job.getLastBuild().getResult().toString()
+        env.result = result
+        echo "The result printed outside shell: ${result}"
+        echo "$env.result"
+        if (currentBuild.result != 'FAILURE') {
+            echo "hii"
+            currentBuild.result = "$env.result"
+    }   
+    }
+    
+    job_status('job_name')
